@@ -1,0 +1,130 @@
+[
+	{
+		"id": 0,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/hamburger-desktop-2053f3ee9fda18af0360a734afe6f1ee.webp",
+		"title": "Hamburger",
+		"price": 10,
+		"categories": 0,
+		"rating": 5
+	},
+	{
+		"id": 1,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/cheeseburger-desktop-328f089351dae21d4d0df2d6c1eb32a3.webp",
+		"title": "Cheeseburger",
+		"price": 12,
+		"categories": 0,
+		"rating": 5
+	},
+	{
+		"id": 2,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/dbl-cheeseburger-desktop-063f26e07302a7081e803e8a22be24f4.webp",
+		"title": "Double Cheeseburger",
+		"price": 11,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 3,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/rodeo-beef-desktop-07c6b01478eb4243f0e35564a4efe75a.webp",
+		"title": "Rodeo Beef",
+		"price": 0,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 4,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/rodeo-beef-xl-desktop-b125d4e68aa8e56550bb45841e3f0737.webp",
+		"title": "Rodeo Beef XL",
+		"price": 0,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 5,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/king-jr-cheeseburger-desktop-e7c1abfcac711a1c2d27b7515da19cbd.webp",
+		"title": "King JR™ Cheeseburger",
+		"price": 20,
+		"categories": 0,
+		"rating": 5
+	},
+	{
+		"id": 6,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/king-jr-burger-desktop-7324c1c7b71f21283cd44289878a36f8.webp",
+		"title": "King JR™ Burger",
+		"price": 10,
+		"categories": 0,
+		"rating": 5
+	},
+	{
+		"id": 7,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/chili-cheese-chicken-desktop-49d980f2550172832136c6fcb3a308e9.webp",
+		"title": "Chili Cheese Chicken™",
+		"price": 30,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 8,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/whopper-desktop-d8cee499661a700caa53bb89104c0e37.webp",
+		"title": "Whopper®",
+		"price": 10,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 9,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/whopper-cheese-desktop-c64166b62b2ed58ff82e5ff7a969a046.webp",
+		"title": "Whopper® with cheese",
+		"price": 10,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 10,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/dbl-whopper-desktop-9a3769cafad2eb0eb9c40e583b5a6642.webp",
+		"title": "Double Whopper®",
+		"price": 10,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 11,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/dbl-whopper-cheese-desktop-0046a8bbd7923b1a32245608c5aa8731.webp",
+		"title": "Double Whopper® with cheese",
+		"price": 1.86,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 12,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/rodeo-chicken-desktop-7b8a75b4ba331d589182976cc0b3f979.webp",
+		"title": "Rodeo Chicken™",
+		"price": 10,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 13,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/rodeo-chicken-desktop-7b8a75b4ba331d589182976cc0b3f979.webp",
+		"title": "Rodeo Chicken XL™",
+		"price": 10,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 14,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/chicken-nugget-burger-desktop-cf4a063f24af80f7519cdbb1e05b972b.webp",
+		"title": "Chicken Nuggets Burger™",
+		"price": 1.32,
+		"categories": 0,
+		"rating": 4
+	},
+	{
+		"id": 15,
+		"imageUrl": "https://www.burgerking.lv/images/optimized/products/fish-king-desktop-3e3cdbd3f21509c5db718d00ec795994.webp",
+		"title": "Fish King™",
+		"price": 1.21,
+		"categories": 0,
+		"rating": 3
+	}
+]
