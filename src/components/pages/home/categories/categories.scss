@@ -1,6 +1,14 @@
 .categories {
+  @media (max-width: 1450px) {
+    width: 100%;
+    overflow: auto;
+  }
   .categories__list {
     display: flex;
+
+    @media (max-width: 1450px) {
+      width: 985px;
+    }
 
     li {
       background-color: #f9f9f9;
