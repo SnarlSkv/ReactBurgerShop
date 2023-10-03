@@ -5,6 +5,11 @@
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 
+	@media (max-width: 840px) {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
   .container {
     display: flex;
     align-items: center;

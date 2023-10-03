@@ -15,6 +15,12 @@ body {
   border-radius: 10px;
   max-width: 1400px;
 
+  @media (max-width: 840px) {
+	width: 100vw;
+	margin: 0;
+	border-radius: 0;
+  }
+
 	.content {
 		padding: 40px 0;
 
