@@ -17,17 +17,6 @@ function ItemBlock({title, price, imageUrl}) {
 				alt="item"
 			/>
 			<h4 className="item-block__title">{title}</h4>
-			{/* <div className="item-block__selector">
-				<ul>
-					<li className="active">Black</li>
-					<li>White</li>
-				</ul>
-				<ul>
-					<li>41</li>
-					<li>42</li>
-					<li className="active">43</li>
-				</ul>
-			</div> */}
 			<div className="item-block__bottom">
 				<div className="item-block__price">{price} $</div>
 				<button onClick={addCount} className="item-block__btn button">
