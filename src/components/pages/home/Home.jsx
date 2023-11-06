@@ -5,12 +5,15 @@ import ItemBlock  from './itemBlock/ItemBlock'
 import Sort 			from './sort/Sort'
 import Skeleton 	from './itemBlock/Skeleton'
 import Pagination from './pagination'
+import { SearchContext } from '../../../App'
 
-function Home({ searchValue }) {
+function Home() {
+  const { searchValue } = React.useContext(SearchContext);
+
 	const [items, setItems] = React.useState([]);
 	const [isLoading, setIsLoading] = React.useState(true);
 
-	const [categoryId, setCategoryId] = React.useState(1);
+	const [categoryId, setCategoryId] = React.useState(0);
 	const [sortType, setSortType] = React.useState({
 		name: 'popular',
 		sortProperty: 'rating',
