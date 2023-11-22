@@ -8,7 +8,7 @@ import './sortStyles.scss'
 
 function Sort() {
 	const dispatch = useDispatch();
-	const sort = useSelector((state) => state.filters.sort);
+	const sort = useSelector((state) => state.filter.sort);
 
 	const [isVisible, setIsVisible] = React.useState(false);
 	const popupList = [

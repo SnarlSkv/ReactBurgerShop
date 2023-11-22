@@ -1,7 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setCategoryId } from '../../../redux/slices/filterSlice' 
+import { setCategoryId, setCurrentPage } from '../../../redux/slices/filterSlice' 
 
 import Categories from './categories/Categories'
 import ItemBlock  from './itemBlock/ItemBlock'
@@ -12,9 +13,11 @@ import { SearchContext } from '../../../App'
 
 function Home() {
 	const dispatch = useDispatch();
-	const categoryId = useSelector((state) => state.filter.categoryId);
-	const sortType = useSelector((state) => state.filter.sort.sortProperty);
+	const { categoryId, sort, currentPage} = useSelector((state) => state.filter)
 
+	// const categoryId = useSelector((state) => state.filter.categoryId);
+	// const sortType = useSelector((state) => state.filter.sort.sortProperty);
+	// const currentCount = useSelector((state) => state.filter.currentCount);
 
 
   const { searchValue } = React.useContext(SearchContext);
@@ -29,28 +32,40 @@ function Home() {
 	// });
 
 	const onChangeCategory = (id) => {
-		dispatch(setCategoryId(id))
+		dispatch(setCategoryId(id));
 	}
 
-	const [currentPage, setCurrentPage] = React.useState(1);
+	const onChangePage = (number) => {
+		dispatch(setCurrentPage(number));
+	}
 
 	React.useEffect(() => {
 		setIsLoading(true);
 
-		const sortBy = sortType;
+		const sortBy = sort.sortProperty;
 		const category = categoryId > 0 ? `category=${categoryId}` : '';
 		const search = searchValue ? `&search=${searchValue}` : '';
 
-		fetch(
-			`https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`, // search mockapi incorrect working
-		)
-			.then((res) => res.json())
-			.then((arr) => {
-				setItems(arr);
+		// fetch(
+		// 	`https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`, // search mockapi incorrect working
+		// )
+		// 	.then((res) => res.json())
+		// 	.then((arr) => {
+		// 		setItems(arr);
+		// 		setIsLoading(false);
+		// 	});
+
+		axios
+			.get(
+				`https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`
+			)
+			.then(res => {
+				setItems(res.data);
 				setIsLoading(false);
-			});
+			})
+
 		window.scrollTo(0, 0);
-	}, [categoryId, sortType, searchValue, currentPage]);
+	}, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
 
 	const burgers = items.map((obj) => <ItemBlock key={obj.id} {...obj} />);
@@ -76,7 +91,7 @@ function Home() {
 			<div className="content__items">
 				{ isLoading ? skeletons : burgers }
 			</div>
-			<Pagination onChangePage={number => setCurrentPage(number)} />
+			<Pagination currentPage={currentPage} onChangePage={onChangePage} />
 		</>
 	)
 }
