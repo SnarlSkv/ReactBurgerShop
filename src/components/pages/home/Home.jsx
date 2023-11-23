@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import axios from 'axios'
+import qs, { parse } from 'qs'
 
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCategoryId, setCurrentPage } from '../../../redux/slices/filterSlice' 
+
+import { setCategoryId, setCurrentPage, setFilters } from '../../../redux/slices/filterSlice' 
 
 import Categories from './categories/Categories'
 import ItemBlock  from './itemBlock/ItemBlock'
-import Sort 			from './sort/Sort'
+import Sort, { popupList } 			from './sort/Sort'
 import Skeleton 	from './itemBlock/Skeleton'
 import Pagination from './pagination'
 import { SearchContext } from '../../../App'
 
 function Home() {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const isSearch = React.useRef(false);
+	const isMounted = React.useRef(false);
+
+
 	const { categoryId, sort, currentPage} = useSelector((state) => state.filter)
 
 	// const categoryId = useSelector((state) => state.filter.categoryId);
@@ -39,7 +47,7 @@ function Home() {
 		dispatch(setCurrentPage(number));
 	}
 
-	React.useEffect(() => {
+	const fetchBurgers = () => {
 		setIsLoading(true);
 
 		const sortBy = sort.sortProperty;
@@ -63,10 +71,45 @@ function Home() {
 				setItems(res.data);
 				setIsLoading(false);
 			})
+	}
 
+	React.useEffect(() => {
+		if (window.location.search) {
+			const params = parse(window.location.search.substring(1));
+			const sort = popupList.find((obj) => obj.sortProperty === params.sortProperty)
+
+			dispatch(
+				setFilters({
+					...params,
+					sort,
+				}),
+			);
+			isSearch.current = true;
+		}
+	}, []);
+
+	React.useEffect(() => {
 		window.scrollTo(0, 0);
+
+		if (!isSearch.current) {
+			fetchBurgers();
+		}
+
+		isSearch.current = false;
 	}, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
+	React.useEffect(() => {
+		if (isMounted.current) {
+			const queryString = qs.stringify({
+				sortProperty: sort.sortProperty,
+				categoryId,
+				currentPage,
+			})
+	
+			navigate(`?${queryString}`);
+		}
+		isMounted.current = true;
+	}, [categoryId, sort.sortProperty, currentPage])
 
 	const burgers = items.map((obj) => <ItemBlock key={obj.id} {...obj} />);
 

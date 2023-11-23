@@ -6,16 +6,17 @@ import { setSort } from '../../../../redux/slices/filterSlice';
 
 import './sortStyles.scss'
 
+export const popupList = [
+	{name: 'popular', sortProperty: 'rating'},
+	{name: 'price', sortProperty: 'price'},
+	{name: 'alphabetically', sortProperty: 'title'}
+];
+
 function Sort() {
 	const dispatch = useDispatch();
 	const sort = useSelector((state) => state.filter.sort);
 
 	const [isVisible, setIsVisible] = React.useState(false);
-	const popupList = [
-		{name: 'popular', sortProperty: 'rating'},
-		{name: 'price', sortProperty: 'price'},
-		{name: 'alphabetically', sortProperty: 'title'}
-	];
 
 	const onClickListItem = (obj) => {
 		dispatch(setSort(obj));
