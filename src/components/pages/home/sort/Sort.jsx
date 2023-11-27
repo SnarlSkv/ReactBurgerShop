@@ -15,6 +15,7 @@ export const popupList = [
 function Sort() {
 	const dispatch = useDispatch();
 	const sort = useSelector((state) => state.filter.sort);
+	const sortRef = React.useRef();
 
 	const [isVisible, setIsVisible] = React.useState(false);
 
@@ -22,9 +23,24 @@ function Sort() {
 		dispatch(setSort(obj));
 		setIsVisible(false);
 	}
+
+	React.useEffect(() => { // Sort mount
+		const handleClickOutside = (event) => {
+			if (!event.path.includes(sortRef.current)) {
+				setIsVisible(false);
+
+			}
+		}
+
+		document.body.addEventListener('click', handleClickOutside);
+
+		return () => { // Sort unmount
+			document.body.removeEventListener('click', handleClickOutside);
+		}
+	}, []);
 	
 	return (
-		<div className="sort">
+		<div ref={sortRef} className="sort">
 			<div className="sort__label">
 				<svg
 					width="10"
