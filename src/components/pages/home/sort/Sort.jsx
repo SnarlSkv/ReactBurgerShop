@@ -24,23 +24,22 @@ function Sort() {
 		setIsVisible(false);
 	}
 
-	React.useEffect(() => { // Sort mount
-		const handleClickOutside = (event) => {
-			if (!event.path.includes(sortRef.current)) {
+	React.useEffect(() => {
+		const handleClickOutside = (event) => { // Sort Mount
+			if (sortRef.current && !sortRef.current.contains(event.target)) {
 				setIsVisible(false);
-
 			}
-		}
-
+		};
+	
 		document.body.addEventListener('click', handleClickOutside);
-
-		return () => { // Sort unmount
+	
+		return () => { // Sort Unmount
 			document.body.removeEventListener('click', handleClickOutside);
-		}
-	}, []);
+		};
+	}, [sortRef]);
 	
 	return (
-		<div ref={sortRef} className="sort">
+		<div ref={sortRef} onClick={() => setIsVisible(!isVisible)} className="sort">
 			<div className="sort__label">
 				<svg
 					width="10"
@@ -55,7 +54,7 @@ function Sort() {
 					/>
 				</svg>
 				<b>Sort by:</b>
-				<span onClick={() => setIsVisible(!isVisible)}>
+				<span>
 					{sort.name}
 				</span>
 			</div>

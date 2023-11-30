@@ -1,6 +1,8 @@
 .sort {
   position: relative;
-  @media (max-width: 1450px) {
+  cursor: pointer;
+
+  @media(max-width: 1450px) {
     padding-left: 20px;
   }
 
