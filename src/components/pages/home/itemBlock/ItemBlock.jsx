@@ -1,12 +1,23 @@
 import React from 'react';
-import { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../../../redux/slices/cartSlice';
+
 import './itemBlock.scss';
 
-function ItemBlock({title, price, imageUrl}) {
-	const [itemCount, setItemCount] = useState(0);
+function ItemBlock({ id, title, price, imageUrl }) {
+	const dispatch = useDispatch();
+	const cartItem = useSelector(state => state.cart.items.find(obj => obj.id == id));
+	const addedCount = cartItem ? cartItem.count : 0;
 
-	const addCount = () => {
-		setItemCount(itemCount + 1);
+	const onClickAdd = () => {
+		const item = {
+			id,
+			title,
+			price,
+			imageUrl,
+		};
+		dispatch(addProduct(item));
 	}
 
 	return (
@@ -19,7 +30,7 @@ function ItemBlock({title, price, imageUrl}) {
 			<h4 className="item-block__title">{title}</h4>
 			<div className="item-block__bottom">
 				<div className="item-block__price">{price} $</div>
-				<button onClick={addCount} className="item-block__btn button">
+				<button onClick={onClickAdd} className="item-block__btn button">
 					<svg
 						width="12"
 						height="12"
@@ -33,7 +44,7 @@ function ItemBlock({title, price, imageUrl}) {
 						/>
 					</svg>
 					<span>Add</span>
-					<i>{itemCount}</i>
+					{addedCount > 0 && <i>{addedCount}</i>}
 				</button>
 			</div>
 		</div>

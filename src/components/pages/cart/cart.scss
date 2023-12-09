@@ -23,6 +23,10 @@
         }
     }
 
+    .cart__items {
+      display: block;
+    }
+
     &__clear {
         display: flex;
         align-items: center;
