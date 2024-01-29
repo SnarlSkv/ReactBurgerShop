@@ -5,6 +5,8 @@ import Header from './components/header/Header'
 import Home from './components/pages/home/Home'
 import Cart from './components/pages/cart/Cart'
 import NotFound from './components/pages/notFound/NotFound'
+import FullBurger from './components/pages/fullBurger/FullBurger';
+
 
 import './App.scss'
 
@@ -25,7 +27,7 @@ function App() {
 						<Routes>
 							<Route path='/' element={<Home />} />
 							<Route path='/cart' element={<Cart />} />
-
+							<Route path='/burger/:id' element={<FullBurger/>} />
 							<Route path='*' element={<NotFound />} />
 						</Routes>
 					</div>

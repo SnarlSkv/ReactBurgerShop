@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { clearProduct } from '../../../redux/slices/cartSlice';
+import { clearProduct, selectCart } from '../../../redux/slices/cartSlice';
 
 import CartBlock from './cartBlock/CartBlock'
 import CartEmpty from '../../cartEmpty/CartEmpty';
@@ -10,7 +10,7 @@ import './cart.scss'
 
 function Cart() {
 	const dispatch = useDispatch();
-	const { totalPrice, items } = useSelector((state) => state.cart);
+	const { totalPrice, items } = useSelector(selectCart);
 
 	const onClickClear = () => {
 		if (window.confirm('Are you sure you want to delete everything in the trash?')) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import qs, { parse } from 'qs'
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { setCategoryId, setCurrentPage, setFilters } from '../../../redux/slices/filterSlice' 
@@ -12,7 +12,6 @@ import ItemBlock  from './itemBlock/ItemBlock'
 import Sort, { popupList } from './sort/Sort'
 import Skeleton 	from './itemBlock/Skeleton'
 import Pagination from './pagination'
-import { SearchContext } from '../../../App'
 
 function Home() {
 	const navigate = useNavigate();
@@ -20,14 +19,12 @@ function Home() {
 	const isSearch = React.useRef(false);
 	const isMounted = React.useRef(false);
 
-	const { categoryId, sort, currentPage} = useSelector((state) => state.filter);
+	const { categoryId, sort, currentPage, searchValue} = useSelector((state) => state.filter);
 	const { burgers, status } = useSelector((state) => state.items);
 
 	// const categoryId = useSelector((state) => state.filter.categoryId);
 	// const sortType = useSelector((state) => state.filter.sort.sortProperty);
 	// const currentCount = useSelector((state) => state.filter.currentCount);
-
-  const { searchValue } = React.useContext(SearchContext);
 
 
 	// const [categoryId, setCategoryId] = React.useState(0);
@@ -116,7 +113,11 @@ function Home() {
 		isMounted.current = true;
 	}, [categoryId, sort.sortProperty, currentPage]);
 
-	const items = burgers.map((obj) => <ItemBlock key={obj.id} {...obj} />);
+	const items = burgers.map((obj) => (
+		<Link key={obj.id} to={`/burger/${obj.id}`}>
+			<ItemBlock {...obj} />
+		</Link>
+	));
 
 	// const burgers = items              Підходить для статичних масивів, з малим об'ємом 
 	// 	.filter((obj) => {
@@ -136,7 +137,7 @@ function Home() {
 				<Sort />
 			</div>
 			<h2 className="content__title">All goods</h2>
-			{status === error ? (
+			{status === 'error' ? (
 					<div>
 						<h2>We have some problems 😕</h2>
 						<p>Most likely, there was an error loading the product</p>
