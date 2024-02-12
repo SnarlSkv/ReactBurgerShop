@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../../../redux/slices/cartSlice';
 
@@ -22,11 +23,13 @@ function ItemBlock({ id, title, price, imageUrl }) {
 
 	return (
 		<div className="item-block">
-			<img
-				className="item-block__image"
-				src={imageUrl}
-				alt="item"
-			/>
+			<Link to={`/burger/${id}`}>
+				<img
+					className="item-block__image"
+					src={imageUrl}
+					alt="item"
+				/>
+			</Link>
 			<h4 className="item-block__title">{title}</h4>
 			<div className="item-block__bottom">
 				<div className="item-block__price">{price} $</div>

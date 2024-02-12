@@ -1,7 +1,7 @@
 import React from 'react'
 import qs, { parse } from 'qs'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { setCategoryId, setCurrentPage, setFilters } from '../../../redux/slices/filterSlice' 
@@ -114,9 +114,7 @@ function Home() {
 	}, [categoryId, sort.sortProperty, currentPage]);
 
 	const items = burgers.map((obj) => (
-		<Link key={obj.id} to={`/burger/${obj.id}`}>
-			<ItemBlock {...obj} />
-		</Link>
+			<ItemBlock key={obj.id} {...obj} />
 	));
 
 	// const burgers = items              Підходить для статичних масивів, з малим об'ємом 
