@@ -1,13 +1,12 @@
 import axios from 'axios';
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import './fullBurger.scss'
 
 const FullBurger = () => {
   const { id } = useParams();
   const [ burger, setBurger ] = React.useState();
   const navigate = useNavigate();
-  
-  console.log(id)
 
   React.useEffect(() => {
     async function fetchBurger() {
@@ -28,16 +27,16 @@ const FullBurger = () => {
   }
 
   return (
-    <div className='container'>
+    <>
       {burger && (
-      <>
+      <div className='main_fb'>
         <img src={burger.imageUrl} alt="" />
         <h2>{burger.title}</h2>
-        <p>Rating: {burger.rating}</p>
-        <h4>{burger.price} $</h4>
-      </>
+        <p>Rating: {burger.rating} ⭐</p>
+        <h4>Price: {burger.price} $</h4>
+      </div>
     )}
-    </div>
+    </>
   )
 }
 

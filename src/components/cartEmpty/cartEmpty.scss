@@ -1,0 +1,44 @@
+.cart__empty {
+  padding: 100px;
+	max-width: 780px;
+	margin: 0 auto;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: 54px;
+  }
+
+  p {
+    font-size: 26px;
+    padding: 20px 0;
+  }
+
+  img {
+    width: 350px;
+
+  }
+
+  span {
+    font-size: 24px;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 700;
+    background-color: #fff;
+    border-color: #FF8000;
+    transition: all .2s;
+
+    &:hover {
+      background-color: #FF8000;
+      color: #fff;
+    }  
+
+    &:active {
+      padding: 8px;
+    }
+  }
+}

@@ -22,17 +22,6 @@ function Home() {
 	const { categoryId, sort, currentPage, searchValue} = useSelector((state) => state.filter);
 	const { burgers, status } = useSelector((state) => state.items);
 
-	// const categoryId = useSelector((state) => state.filter.categoryId);
-	// const sortType = useSelector((state) => state.filter.sort.sortProperty);
-	// const currentCount = useSelector((state) => state.filter.currentCount);
-
-
-	// const [categoryId, setCategoryId] = React.useState(0);
-	// const [sortType, setSortType] = React.useState({
-	// 	name: 'popular',
-	// 	sortProperty: 'rating',
-	// });
-
 	const onChangeCategory = (id) => {
 		dispatch(setCategoryId(id));
 	}
@@ -46,24 +35,6 @@ function Home() {
 		const sortBy = sort.sortProperty;
 		const category = categoryId > 0 ? `category=${categoryId}` : '';
 		const search = searchValue ? `&search=${searchValue}` : '';
-
-		// fetch(
-		// 	`https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`, // search mockapi incorrect working
-		// )
-		// 	.then((res) => res.json())
-		// 	.then((arr) => {
-		// 		setItems(arr);
-		// 		setIsLoading(false);
-		// 	});
-
-		// axios
-		// 	.get(
-		// 		`https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`
-		// 	)
-		// 	.then(res => {
-		// 		setItems(res.data);
-		// 		setIsLoading(false);
-		// 	})
 
 		dispatch(fetchBurgers({
 			sortBy,
@@ -116,15 +87,6 @@ function Home() {
 	const items = burgers.map((obj) => (
 			<ItemBlock key={obj.id} {...obj} />
 	));
-
-	// const burgers = items              Підходить для статичних масивів, з малим об'ємом 
-	// 	.filter((obj) => {
-	// 		if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
-	// 			return true;
-	// 		}
-	// 		return false;
-	// 	})
-	// 	.map((obj) => <ItemBlock key={obj.id} {...obj} />);
 
 	const skeletons = [...new Array(8)].map((_, index) => (<Skeleton key={index} />));
 

@@ -7,7 +7,6 @@ import Cart from './components/pages/cart/Cart'
 import NotFound from './components/pages/notFound/NotFound'
 import FullBurger from './components/pages/fullBurger/fullBurger';
 
-
 import './App.scss'
 
 export const SearchContext = React.createContext()
@@ -15,8 +14,6 @@ export const SearchContext = React.createContext()
 function App() {
 	
 	const [searchValue, setSearchValue] = React.useState('');
-	
- 	console.log(searchValue);
 
 	return (
 		<div className="wrapper">

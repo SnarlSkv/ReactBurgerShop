@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 import cartEmptyImg from '../../assets/img/empty-cart.png';
+import "./cartEmpty.scss"
 
 const CartEmpty = () => {
   return (
     <>
-    <div className='cart cart--empty'>
+    <div className='cart__empty'>
       <h2>Basket empty <icon>😕</icon></h2>
       <p>
         It looks like you haven't ordered any products yet.<br/> 
