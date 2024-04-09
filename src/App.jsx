@@ -5,7 +5,7 @@ import Header from './components/header/Header'
 import Home from './components/pages/home/Home'
 import Cart from './components/pages/cart/Cart'
 import NotFound from './components/pages/notFound/NotFound'
-import FullBurger from './components/pages/fullBurger/fullBurger';
+import FullBurger from './components/pages/fullBurger/FullBurger';
 
 import './App.scss'
 
