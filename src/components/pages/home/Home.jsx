@@ -98,7 +98,7 @@ function Home() {
 			</div>
 			<h2 className="content__title">All goods</h2>
 			{status === 'error' ? (
-					<div>
+					<div className='content__error'>
 						<h2>We have some problems 😕</h2>
 						<p>Most likely, there was an error loading the product</p>
 					</div>

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export const fetchBurgers = createAsyncThunk('items/fetchBurgersStatus', async ({ sortBy, category, search, currentPage, }) => {
   const { data } = await axios.get(
-    `https://6410a431ff89c2e2d4e4e0d2.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`
+    `https://6644ee4ab8925626f8907e41.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=desc${search}`
   )
   return data;
 })
